@@ -1,0 +1,31 @@
+{
+  "name": "course-selector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "bluebird": "^2.9.30",
+    "config": "^1.14.0",
+    "lodash": "^3.9.3",
+    "orchestrate": "^0.4.4",
+    "python-shell": "^0.1.0"
+  },
+  "dependencies": {}
+}
