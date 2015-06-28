@@ -42,7 +42,8 @@ if (courseNums.length !== _.unique(courseNums).length) {
 
 // > no unhandled course description duplicates
 if (courseNames.length !== _.unique(courseNames).length) {
-    results = [], sorted = _.sortBy(courseNames);
+    results = [];
+    sorted = _.sortBy(courseNames);
     for (i = 0; i < courseNames.length - 1; i++) {
         if (sorted[i + 1] == sorted[i]) {
             results.push(sorted[i]);
