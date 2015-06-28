@@ -1,12 +1,17 @@
 Entry reposted from [cdaringe.net](http://cdaringe.com/applied-simplex-method-for-deciding-years-of-coursework/)
 
 ## usage
-You must have installed nodejs/npm && python with pip.
+The courses and specializations in this repo are from the [Georgia Tech OMSCS program](www.omscs.gatech.edu/).  Extending this to other schools should be no-biggie!
+I represent all course and track metadata in javascipt primatives.  See `course-list.js` and `tracks/xzy.js`.
+To run the program, you must install nodejs/npm and python with pip.  After cloning the repo, `cd` to the directory and:
+
 - `npm install`
 - `pip install -r requirements.txt`
 - modify `course-list.js` to specify your own rating values
 - run `node index.js`
 - review output!
+
+Don't forget to register on time and show up for class!  :pencil2::page_facing_up::eyeglasses::bell::school:
 
 ## post
 I am pursuing a Masters of Computer Science.  Why?  Because learning is **fun**, I desire self-improvement, and because I can.  I hope that the gains acquired from the degree support [my goal of servitude](http://cdaringe.com/about/#workphilosophy) while doing something that I love.  This is not a pursuit rooted in career-advancement.  Understanding the motivation for the learning drives my proposed model's objective, generally dubbed `Z`, which describes the target value I want to maximize at @school.  Before we can break down what `Z` is and the components involved, allow me to set the context.
@@ -38,7 +43,7 @@ Build a set of constraints to model:
 - take just at least one track in the program
    - `track1 + track2 ... + trackN >= 1`
 - take the required number of graduation credits
-    - `c1 + c2 ... + cN = 30` 
+    - `c1 + c2 ... + cN = 30`
 - satisfy taking the # of courses required by *each* track category
     - `c1 + c2 + c3 - 2*track1 >= 0`, meaning at least 2 of c1, c2, or c3 must be taken if track 1 is selected
 - take sufficient _foundational_ courses to sasify overall program requirements
