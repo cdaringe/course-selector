@@ -50,7 +50,7 @@ def main(data):
     constraintSingleTrack = LpAffineExpression(
         [ (tracks[trackName]['_LpVariable'], 1) for trackName, track in tracks.iteritems() ]
     )
-    prob += LpConstraint(constraintSingleTrack, LpConstraintEQ,  "single track selected", 1)
+    prob += LpConstraint(constraintSingleTrack, LpConstraintGE,  "single track selected", 1)
 
     # constrain track to track groupings
     for trackName, track in tracks.iteritems():

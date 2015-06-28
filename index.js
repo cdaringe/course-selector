@@ -13,23 +13,17 @@ var track4 = require('./track/machine-learning.js');
 var track5 = require('./track/interactive-intelligence.js');
 var tracks = [track1, track2, track3, track4, track5];
 var courseMismatch = [];
-var _tracks = {};
 
 var coursesByNum, coursesByNumKeys;
 var ratingsByNum, ratingsByNumKeys;
+var tracksByName;
 var ratingMismatch;
 var currTrack;
 
-
-// populate all tracks
-for (var i = tracks.length - 1; i >= 0; i--) {
-    currTrack = tracks[i];
-    _tracks[currTrack.name] = { catagories: currTrack.catagories }; // addtl meta loaded in in py process
-}
-
+tracksByName = _.indexBy(tracks, 'name');
 coursesByNum = _.indexBy(courses, 'num');
 
-// > no course # duplicated (course number is our unique key)
+// assert: no course # duplicated (course number is our unique key)
 if (courseNums.length !== _.unique(courseNums).length) {
     var results = [], sorted = _.sortBy(courseNums);
     for (var i = 0; i < courseNums.length - 1; i++) {
@@ -40,7 +34,7 @@ if (courseNums.length !== _.unique(courseNums).length) {
     throw new Error('duplicate courses numbers found: ' + results.join(', '));
 }
 
-// > no unhandled course description duplicates
+// assert: no course description duplicates
 if (courseNames.length !== _.unique(courseNames).length) {
     results = [];
     sorted = _.sortBy(courseNames);
@@ -52,6 +46,7 @@ if (courseNames.length !== _.unique(courseNames).length) {
     throw new Error('duplicate courses names found: ' + results.join(', '));
 }
 
+// assert: no courses in tracks that don't actually exist
 tracks.forEach(function assertTrackCoursesValid(track) {
     track.catagories.forEach(function assertCategoryCoursesValid(catagory) {
         catagory.courseNums.forEach(function assertCourseValid(courseNum) {
@@ -73,10 +68,11 @@ var problem = {
     collegeCredits: 30,
     foundationalCourses: 2,
     courses: coursesByNum,
-    tracks: _tracks,
+    tracks: tracksByName,
     rating: ratingsByNum
 };
 
+// Execute the BIP in python process, feed results back to node-land
 var options = {
     mode: 'text',
     args: [JSON.stringify(problem)],
