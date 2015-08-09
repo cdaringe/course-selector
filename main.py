@@ -18,7 +18,8 @@ def main(data):
     courses = data['courses']
     tracks = data['tracks']
 
-    foundational= []
+    foundational = []
+    online = []
 
     # course switches
     for id in courses:
@@ -26,7 +27,8 @@ def main(data):
         course['_LpVariable'] = LpVariable(name = 'course: ' + course['name'] + ' ' + course['num'], lowBound = 0, upBound = 1, cat = LpInteger)
         if course['foundational']:
             foundational.append((course['_LpVariable'], 1))
-
+        if course['online']:
+            online.append((course['_LpVariable'], course['credits']))
 
     # track switches
     for trackName, track in tracks.iteritems():
@@ -38,7 +40,15 @@ def main(data):
     )
 
     # ensure that minimum# foundational courses are taken
-    prob += LpConstraint(LpAffineExpression(foundational), LpConstraintGE, str(foundationalCourses) + ' foundational courses selected')
+    # foundational.insert(0, (
+    #     LpVariable('min_foundational_courses', lowBound=1, upBound=1, cat='Binary', e=None),
+    #     -1 * foundationalCourses
+    # ))
+    prob += LpConstraint(LpAffineExpression(foundational), LpConstraintGE, str(foundationalCourses) + ' foundational courses selected', foundationalCourses)
+
+    # OPTIONAL - comment on/off as desired
+    # ensure that only courses are online (i.e. that online credits >= required credits)
+    prob += LpConstraint(LpAffineExpression(online), LpConstraintGE, str(collegeCredits) + ' online credits selected', collegeCredits)
 
     # constrain total # of credit hours in program to college requirement
     constraintTotalCredits = LpAffineExpression(

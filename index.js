@@ -51,6 +51,7 @@ tracks.forEach(function assertTrackCoursesValid(track) {
     track.catagories.forEach(function assertCategoryCoursesValid(catagory) {
         catagory.courseNums.forEach(function assertCourseValid(courseNum) {
             if (!coursesByNum[courseNum]) {
+                debugger;
                 courseMismatch.push(track.name + ' ' + courseNum);
             }
         });
@@ -58,7 +59,7 @@ tracks.forEach(function assertTrackCoursesValid(track) {
 });
 
 if (courseMismatch.length) {
-    console.dir(courseMismatch);
+    console.log(courseMismatch);
     throw new Error('track courses are not in master course list. see above');
 }
 
