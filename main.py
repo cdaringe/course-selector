@@ -8,7 +8,6 @@ parser = argparse.ArgumentParser(description='Solve the course selection linear 
 parser.add_argument('problem', metavar='p', type=str, nargs='+',
                    help='yaml string defining the mathematical LP')
 
-
 # solve the ideal course and program layout
 def main(data):
     prob = LpProblem("The Course Selection Problem", LpMaximize)
@@ -40,10 +39,6 @@ def main(data):
     )
 
     # ensure that minimum# foundational courses are taken
-    # foundational.insert(0, (
-    #     LpVariable('min_foundational_courses', lowBound=1, upBound=1, cat='Binary', e=None),
-    #     -1 * foundationalCourses
-    # ))
     prob += LpConstraint(LpAffineExpression(foundational), LpConstraintGE, str(foundationalCourses) + ' foundational courses selected', foundationalCourses)
 
     # OPTIONAL - comment on/off as desired
@@ -77,7 +72,7 @@ def main(data):
             )
             groupNdx += 1
 
-    # TODO contrain 4000/5000 level courses (that are the same course, from getting double credit)
+    # TODO constrain 4000/5000 level courses (that are the same course, from getting double credit)
 
     prob.writeLP("courses.lp")
     prob.solve()
