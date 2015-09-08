@@ -13,7 +13,7 @@ This code supports the optimiazation problem discussed @[cdaringe.com](http://cd
   - review output!
 
 ## disclaimer
-Albeit that you can "minimize on difficulty" (_supposing you had "difficulty" data_), the capability to do so is a a weak and subjective claim.  Attempting to do so will surely not work as intended.  School staff work dilligently to assert that each degree provides adequate challenges to its given student body.  This is a tool intended to primarily to help students (myself), ensure that they pick the best courses aligned with their interests.
+Albeit that you can "minimize on difficulty" (_supposing you had "difficulty" data_), the capability to do so is a weak and subjective claim.  Attempting to do so will surely not work as intended.  School staff work dilligently to assert that each degree provides adequate challenges to its student body.  This is a tool intended to primarily to help students (myself), ensure that they pick the best courses aligned with their interests and learning goals.
 
 ## most importantly...
 Don't forget to register on time and show up for class!  :pencil2::page_facing_up::eyeglasses::bell::school:
