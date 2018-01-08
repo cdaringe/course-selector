@@ -21,11 +21,11 @@
   },
   "homepage": "",
   "devDependencies": {
-    "bluebird": "^2.9.30",
+    "bluebird": "^3.5.1",
     "config": "^1.14.0",
-    "lodash": "^3.9.3",
-    "orchestrate": "^0.4.4",
-    "python-shell": "^0.1.0"
+    "lodash": "^4.17.4",
+    "orchestrate": "^0.8.2",
+    "python-shell": "^0.4.0"
   },
   "dependencies": {}
 }
