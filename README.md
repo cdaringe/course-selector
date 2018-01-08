@@ -1,4 +1,6 @@
 ## course-selector
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/cdaringe/course-selector.svg)](https://greenkeeper.io/)
 Determine the optimal set of courses that a student should take provided relative _ratings_ on each course.  The objective is to maximize/minimize on the rating (e.g. maximize on course interest, or minimize on course difficulty).  Currently, the Georgia Tech [OMSCS courses](http://www.omscs.gatech.edu/courses/) are loaded into the repo, but can easily be swapped/forked/extended/yada-yada to accomodate any other course set or program set from another institution.
 
 This code supports the optimiazation problem discussed @[cdaringe.com](http://cdaringe.com/applied-simplex-method-for-deciding-years-of-coursework/)
